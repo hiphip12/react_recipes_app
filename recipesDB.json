@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "recipes": [
+    {
+      "name": "hello",
+      "author": "hello",
+      "selectedCountry": "",
+      "description": "",
+      "quantity": "",
+      "ingredients": "",
+      "instructions": "123",
+      "id": 1
+    },
+    {
+      "name": "bye",
+      "author": "bye",
+      "selectedCountry": "",
+      "description": "",
+      "quantity": "",
+      "ingredients": "",
+      "instructions": "321",
+      "id": 2
+    },
+    {
+      "name": "JJ",
+      "author": "JJ",
+      "selectedCountry": "",
+      "description": "",
+      "quantity": "",
+      "ingredients": "",
+      "instructions": "JJ",
+      "id": 3
+    }
+  ]
+}
