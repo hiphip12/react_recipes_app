@@ -6,21 +6,65 @@ import Nav from './Nav';
 
 function NewRecipe() {
 
+    // const [recipeData, setRecipeData] = useState({
+    //     name: '',
+    //     author: '',
+    //     selectedCountry: '',
+    //     description: '',
+    //     instructions: ''
+
+    // });
+
+    // const [portionData, setPortionData] = useState({
+    //     ingredients: '',
+    //     quantity: ''
+    // });
+
+
+
+    // function handleInputChange(event) {
+    //     setRecipeData({
+    //         ...recipeData,
+    //         [event.target.name]: event.target.value,
+    //     });
+    // }
+
+    // function handleInputChangePortion(event) {
+    //     setPortionData({
+    //         ...portionData,
+    //         [event.target.name]: event.target.value,
+    //     });
+    // }
+
     const [recipeData, setRecipeData] = useState({
         name: '',
         author: '',
         selectedCountry: '',
         description: '',
-        quantity: '',
-        ingredients: '',
-        instructions: ''
-
+        instructions: '',
+        portions: [{ ingredients: '', quantity: '' }]
     });
 
     function handleInputChange(event) {
         setRecipeData({
             ...recipeData,
             [event.target.name]: event.target.value,
+        });
+    }
+
+    function handlePortionInputChange(event, i) {
+        const portions = [...recipeData.portions];
+        portions[i][event.target.name] = event.target.value;
+        setRecipeData({
+            ...recipeData,
+            portions: portions
+        });
+    }
+
+    function handleAddPortion() {
+        setRecipeData({
+            ...recipeData,
+            portions: [...recipeData.portions, { ingredients: '', quantity: '' }]
         });
     }
 
@@ -33,6 +77,7 @@ function NewRecipe() {
                     name: '',
                     author: '',
                     instructions: '',
+                    portions: [{ ingredients: '', quantity: '' }]
                 });
             })
             .catch((error) => {
@@ -103,20 +148,23 @@ function NewRecipe() {
                     />
                 </label>
                 <br />
-                <div className='materials_wrapper'>
-                    <label>
-                        Quantity
-                        <input type="text" name="quantity" value={recipeData.quantity}
-                            onChange={handleInputChange} />
-                    </label>
-                    <label>
-                        Ingredients
-                        <input type="text" name="ingredients" value={recipeData.ingredients}
-                            onChange={handleInputChange} />
-                    </label>
+                <div className='portions_wrapper'>
+                    {recipeData.portions.map((portion, i) => (
+                        <div key={i}>
+                            <label>
+                                Quantity
+                                <input type="text" name="quantity" value={portion.quantity}
+                                    onChange={(event) => handlePortionInputChange(event, i)} />
+                            </label>
+                            <label>
+                                Ingredients
+                                <input type="text" name="ingredients" value={portion.ingredients}
+                                    onChange={(event) => handlePortionInputChange(event, i)} />
+                            </label>
+                        </div>))}
                 </div>
                 <br />
-                <button type="submit">add more</button>
+                <button type='button' onClick={handleAddPortion}>Add portion</button>
                 <br />
                 <label>
                     Instructions:

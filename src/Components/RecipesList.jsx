@@ -42,19 +42,22 @@ function RecipesList() {
                             <h3>{recipe.name}</h3>
                             <p>{recipe.author}</p>
                             <p>{recipe.instructions}</p>
+                            <Link to={`/recipe-profile/${recipe.id}`}>
+                                <h2>see more</h2>
+                            </Link>
                         </li>
                     ))}
                 </ul>
             </div>
 
             <div>
-                {recipes.map((recipe) => (
+                {/* {recipes.map((recipe) => (
                     <div key={recipe.id}>
                         <Link to={`/recipe-profile/${recipe.id}`}>
                             <h2>{recipe.name}</h2>
                         </Link>
                     </div>
-                ))}
+                ))} */}
             </div>
 
         </div >
