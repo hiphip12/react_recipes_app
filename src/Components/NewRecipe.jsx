@@ -6,44 +6,18 @@ import Nav from './Nav';
 
 function NewRecipe() {
 
-    // const [recipeData, setRecipeData] = useState({
-    //     name: '',
-    //     author: '',
-    //     selectedCountry: '',
-    //     description: '',
-    //     instructions: ''
-
-    // });
-
-    // const [portionData, setPortionData] = useState({
-    //     ingredients: '',
-    //     quantity: ''
-    // });
-
-
-
-    // function handleInputChange(event) {
-    //     setRecipeData({
-    //         ...recipeData,
-    //         [event.target.name]: event.target.value,
-    //     });
-    // }
-
-    // function handleInputChangePortion(event) {
-    //     setPortionData({
-    //         ...portionData,
-    //         [event.target.name]: event.target.value,
-    //     });
-    // }
-
     const [recipeData, setRecipeData] = useState({
         name: '',
         author: '',
-        selectedCountry: '',
+        country: '',
         description: '',
         instructions: '',
         portions: [{ ingredients: '', quantity: '' }]
     });
+
+    // country selection
+    const [selectedCountry, setSelectedCountry] = useState('');
+    const [countryList, setCountryList] = useState([]);
 
     function handleInputChange(event) {
         setRecipeData({
@@ -70,13 +44,14 @@ function NewRecipe() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost:4002/recipes', recipeData)
+        axios.post('http://localhost:4002/recipes', { ...recipeData, country: selectedCountry })
             .then(response => {
                 console.log('Recipe added:', response.data);
                 setRecipeData({
                     name: '',
                     author: '',
                     instructions: '',
+                    country: '',
                     portions: [{ ingredients: '', quantity: '' }]
                 });
             })
@@ -85,9 +60,6 @@ function NewRecipe() {
             });
     }
 
-    // country selection
-    const [selectedCountry, setSelectedCountry] = useState('');
-    const [countryList, setCountryList] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:4001/countries')
