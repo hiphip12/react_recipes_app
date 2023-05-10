@@ -12,12 +12,9 @@ function NewRecipe() {
         country: '',
         description: '',
         instructions: '',
+        image: '',
         portions: [{ ingredients: '', quantity: '' }]
     });
-
-    // country selection
-    const [selectedCountry, setSelectedCountry] = useState('');
-    const [countryList, setCountryList] = useState([]);
 
     function handleInputChange(event) {
         setRecipeData({
@@ -42,24 +39,11 @@ function NewRecipe() {
         });
     }
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        axios.post('http://localhost:4002/recipes', { ...recipeData, country: selectedCountry })
-            .then(response => {
-                console.log('Recipe added:', response.data);
-                setRecipeData({
-                    name: '',
-                    author: '',
-                    instructions: '',
-                    country: '',
-                    portions: [{ ingredients: '', quantity: '' }]
-                });
-            })
-            .catch((error) => {
-                console.error('Error adding recipe:', error);
-            });
-    }
+    // country selection
+    const [selectedCountry, setSelectedCountry] = useState({
+    });
 
+    const [countryList, setCountryList] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:4001/countries')
@@ -70,6 +54,27 @@ function NewRecipe() {
                 console.error('Error loading countries:', error);
             });
     }, []);
+
+    //using axios to post data in JSON server
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        axios.post('http://localhost:4002/recipes', { ...recipeData, country: selectedCountry })
+            .then(response => {
+                console.log('Recipe added:', response.data);
+                setRecipeData({
+                    name: '',
+                    author: '',
+                    instructions: '',
+                    country: '',
+                    image: '',
+                    portions: [{ ingredients: '', quantity: '' }]
+                });
+            })
+            .catch((error) => {
+                console.error('Error adding recipe:', error);
+            });
+    }
 
     return (
         <div className='newRecipePage'>
@@ -103,7 +108,7 @@ function NewRecipe() {
                     <select value={selectedCountry} onChange={e => setSelectedCountry(e.target.value)}>
                         <option value="">Select a country</option>
                         {countryList.map(country => (
-                            <option key={country.name} value={country.name}>
+                            <option key={country.code} value={country.code}>
                                 {country.name}
                             </option>
                         ))}
@@ -116,6 +121,16 @@ function NewRecipe() {
                     <textarea
                         name="description"
                         value={recipeData.description}
+                        onChange={handleInputChange}
+                    />
+                </label>
+                <br />
+                <label>
+                    Image link
+                    <input
+                        type="text"
+                        name="image"
+                        value={recipeData.image}
                         onChange={handleInputChange}
                     />
                 </label>
