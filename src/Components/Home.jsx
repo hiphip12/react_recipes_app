@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, NavLink, Link, } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
 
 const Home = () => {
