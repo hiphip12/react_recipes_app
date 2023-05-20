@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Nav = () => {
     return (
         <div className='top_menu'>
-            <p className='logo'>tasteIT</p>
+            <Link to="/"><p className='logo'>ReactRecipes</p> </Link>
             <nav>
                 <ul>
                     <Link to="/">
