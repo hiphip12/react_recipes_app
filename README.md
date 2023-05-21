@@ -1,4 +1,4 @@
-# Recipes App made in React
+# Recipes App made with React
 
 ## Description
 This is a React Application which allows users to browse a list of recepies, inluding number decription, instructions, list of ingredients and an image of the dish.
