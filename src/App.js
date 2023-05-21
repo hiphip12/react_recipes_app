@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Components/Home';
-import NewRecipe from './Components/NewRecipe';
-import RecipesList from './Components/RecipesList';
-import RecipeProfile from './Components/RecipeProfile';
-import './App.css';
+import Home from './Pages/Home';
+import NewRecipe from './Pages/NewRecipe';
+import RecipesList from './Pages/RecipesList';
+import RecipeProfile from './Pages/RecipeProfile';
 
 function App() {
 

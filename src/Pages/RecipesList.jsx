@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, } from 'react-router-dom';
-import Nav from './Nav';
+import Nav from '../Components/Nav';
 import axios from 'axios';
 
 function RecipesList() {
@@ -27,7 +27,7 @@ function RecipesList() {
     }
 
     if (!recipes) {
-        return <div>rror getting the recipes data!</div>;
+        return <div>Error getting the recipes data!</div>;
     }
 
 
@@ -50,9 +50,9 @@ function RecipesList() {
 
                 <div className='recipe_pain'>
                     {filteredRecipes.map((recipe) => (
-                        <div>
-                            <div className='recipeCard' key={recipe.id}>
-                                <div className='image_container'>
+                        <div key={recipe.id}>
+                            <div className='recipeCard'>
+                                <div className='recipeImage_container'>
                                     <img src={recipe.image} alt={recipe.name} className="recipeImage" />
                                 </div>
                                 <h3>{recipe.name}</h3>

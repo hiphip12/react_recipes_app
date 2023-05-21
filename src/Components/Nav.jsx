@@ -7,18 +7,21 @@ const Nav = () => {
             <Link to="/"><p className='logo'>ReactRecipes</p> </Link>
             <nav>
                 <ul>
-                    <Link to="/">
-                        <li>Home</li>
-                    </Link>
-                    <Link to="/recipes-list">
-                        <li>Recepies</li>
-                    </Link>
-                    <Link to="/new-recipe">
-                        <li>
+                    <li>
+                        <Link to="/">
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/recipes-list">
+                            Recepies
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/new-recipe">
                             Add recipe
-                        </li>
-                    </Link>
-
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </div >
