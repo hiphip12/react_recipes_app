@@ -1,4 +1,4 @@
-# Recipies App made in React
+# Recipes App made in React
 
 ## Description
 This is a React Application which allows users to browse a list of recepies, inluding number decription, instructions, list of ingredients and an image of the dish.
@@ -38,7 +38,7 @@ This project was made in the scope of a school assigment @Helsinki Business Coll
 
 ## Live Page
 
-See it [here](https://public.bc.fi/s2300106/react_recipes/)
+See it [here](https://clever-licorice-ef4ec5.netlify.app/)
 
 ## Credits
 
