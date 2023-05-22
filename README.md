@@ -1,4 +1,4 @@
-# Recipes App made with React
+# Recipes app made with React
 
 ## Description
 This is a React Application which allows users to browse a list of recepies, inluding number decription, instructions, list of ingredients and an image of the dish.
@@ -14,7 +14,7 @@ This project was made in the scope of a school assigment @Helsinki Business Coll
 
 ## Setup Instructions
 
-For React app, in terminal:
+For setting up the React app, write in terminal:
 
 - ``` git clone https://github.com/hiphip12/react_recipes_app.git ```
 
@@ -24,7 +24,7 @@ For React app, in terminal:
 
 - ``` npm start ``` (to start local server)
 
-To read and write input data, the project includes a react script to watch changes in a local JSON server (full fake REST API) - seen in package.json file, line 23: ``` "server": "json-server -p4002 --watch recipesDB.json" ```. 
+To read and write input data, the project includes a react script to watch changes in an aditional local JSON server (full fake REST API) - seen in package.json file, line 23: ``` "server": "json-server -p4002 --watch recipesDB.json" ```. 
 
 Thus, to be able use that capability (using http://localhost:4002/), add in terminal:
 - ``` npm install json-server --save-dev ```
