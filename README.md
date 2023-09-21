@@ -11,10 +11,9 @@ This project was made in the scope of a school assigment @Helsinki Business Coll
 - JavaScript
 - HTML
 - CSS
+- Axios
 
 ## Setup Instructions
-
-For setting up the React app, write in terminal:
 
 - ``` git clone https://github.com/hiphip12/react_recipes_app.git ```
 
@@ -24,10 +23,8 @@ For setting up the React app, write in terminal:
 
 - ``` npm start ``` (to start local server)
 
-To read and write input data, the project includes a react script to watch changes in an aditional local JSON server (full fake REST API) - seen in package.json file, line 23: ``` "server": "json-server -p4002 --watch recipesDB.json" ```. 
+To enable local JSON server:
 
-Thus, to be able use that capability (using http://localhost:4002/), add in terminal:
-- ``` npm install json-server --save-dev ```
 - ``` npm run server ```
 
 ## Usage directions
@@ -40,7 +37,7 @@ Thus, to be able use that capability (using http://localhost:4002/), add in term
 6. See your recipe posted in the list of receipies at the Recipes page.
 
 
-## Screenshot
+## Screenshots
 
 ### Homepage
 
@@ -53,10 +50,6 @@ Thus, to be able use that capability (using http://localhost:4002/), add in term
 ### Recipe Profile Page
 
 ![RecipeProfile](src/assets/screenshots/Screenshot-RecipeProfile.webp)
-
-## Live Page
-
-See it [here](https://clever-licorice-ef4ec5.netlify.app/) (local JSON server setup required for read/write input data, otherwise it displays the app without that capabiliy)
 
 ## Credits
 
